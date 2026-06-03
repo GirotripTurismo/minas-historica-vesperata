@@ -1,0 +1,13 @@
+/* ══ FOOTER MODULE ════════════════════ */
+#ftr { background: #0a0e1a; padding: 44px 0 28px; border-top: 1px solid rgba(255,255,255,.06); }
+.ftr-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.05); margin-bottom: 22px;
+}
+.ftr-logo img { height: 52px; opacity: .6; }
+.ftr-links { display: flex; gap: 28px; }
+.ftr-link { font-size: 12px; color: rgba(255,255,255,.28); letter-spacing: .03em; transition: color 0.2s; }
+.ftr-link:hover { color: var(--orange); }
+.ftr-bottom { display: flex; align-items: center; justify-content: space-between; }
+.ftr-copy { font-size: 11px; color: rgba(255,255,255,.18); }
+.ftr-slogan { font-family: var(--ff-serif); font-style: italic; font-size: 12px; color: rgba(255,255,255,.2); }

@@ -1,0 +1,78 @@
+/* ══ FORMULÁRIO MODULE ════════════════ */
+#s-form {
+  background: var(--blue); padding: 96px 0;
+  position: relative; overflow: hidden;
+}
+#s-form::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,127,0,.06) 0%,transparent 60%);
+}
+#s-form .wrap { position: relative; z-index: 1; }
+.form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+.form-h {
+  font-family: var(--ff-serif); font-size: 52px; font-weight: 400; font-style: italic;
+  color: var(--white); line-height: 1.08; margin-bottom: 18px;
+}
+.form-sub { font-size: 15px; color: rgba(255,255,255,.58); font-weight: 300; margin-bottom: 32px; line-height: 1.8; }
+.form-detail { padding-top: 28px; border-top: 1px solid rgba(255,255,255,.12); }
+.form-detail p { font-size: 13px; color: rgba(255,255,255,.42); line-height: 1.7; font-weight: 300; }
+.form-detail strong { color: rgba(255,255,255,.72); font-weight: 600; }
+.form-slogan { font-family: var(--ff-serif); font-style: italic; color: rgba(255,255,255,.35) !important; margin-top: 10px !important; }
+
+/* Form inputs */
+.prog { display: flex; align-items: center; gap: 8px; margin-bottom: 32px; }
+.prog-step {
+  width: 28px; height: 28px; background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: rgba(255,255,255,.3);
+  transition: all 0.25s ease;
+}
+.prog-step.act { background: var(--orange); border-color: var(--orange); color: var(--white); }
+.prog-step.dn { background: rgba(255,127,0,.2); border-color: var(--orange); color: var(--orange); }
+.prog-line { flex: 1; height: 1px; background: rgba(255,255,255,.12); max-width: 80px; }
+.f-step { display: none; } .f-step.act { display: block; }
+.f-fields { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+.f-group { display: flex; flex-direction: column; gap: 6px; }
+.f-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.38); }
+.f-input, .f-sel {
+  width: 100%; padding: 14px 16px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 0; color: var(--white);
+  font-family: var(--ff-sans); font-size: 15px; font-weight: 300;
+  outline: none; appearance: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.f-input::placeholder { color: rgba(255,255,255,.2); }
+.f-input:focus, .f-sel:focus { border-color: rgba(255,127,0,.55); background: rgba(255,255,255,.07); }
+.f-sel {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23ff7f00' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  background-color: rgba(255,255,255,.05); cursor: pointer;
+}
+.f-sel option { background: var(--blue); }
+.f-back {
+  background: none; border: none; color: rgba(255,255,255,.3); font-size: 12px;
+  cursor: pointer; transition: color 0.2s; display: flex; align-items: center;
+  gap: 5px; margin-top: 14px; font-family: var(--ff-sans);
+}
+.f-back:hover { color: rgba(255,255,255,.7); }
+.f-ok { display: none; padding: 40px 0; } .f-ok.act { display: block; }
+.f-ok-mark {
+  width: 48px; height: 48px; background: var(--orange);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+}
+.f-ok-h { font-family: var(--ff-serif); font-size: 26px; color: var(--white); margin-bottom: 10px; }
+.f-ok-p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.7; font-weight: 300; }
+.wa-row {
+  display: flex; align-items: center; gap: 12px; margin-top: 24px;
+  padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);
+}
+.wa-row span { font-size: 13px; color: rgba(255,255,255,.35); }
+.wa-btn {
+  display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px;
+  background: transparent; border: 1px solid rgba(37,211,102,.28);
+  color: #4ade80; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+  cursor: pointer; transition: background 0.2s; font-family: var(--ff-sans);
+}
+.wa-btn:hover { background: rgba(37,211,102,.12); }

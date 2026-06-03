@@ -1,0 +1,46 @@
+/* ══ FAQ MODULE ═══════════════════════ */
+#s-faq { background: var(--white); padding: 96px 0; }
+.faq-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.info-h {
+  font-family: var(--ff-serif); font-size: 30px; font-weight: 700;
+  color: var(--blue); margin-bottom: 32px; line-height: 1.2;
+}
+.info-list { list-style: none; }
+.info-li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.info-li:first-child { border-top: 1px solid var(--border); }
+.info-li-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--orange); min-width: 72px; padding-top: 2px;
+}
+.info-li-val { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+/* Accordion */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 20px 0; width: 100%; background: none; border: none; text-align: left;
+  font-family: var(--ff-sans); font-size: 14px; font-weight: 600; color: var(--text);
+  cursor: pointer; transition: color 0.2s ease;
+}
+.faq-q:hover { color: var(--blue); }
+.faq-tog {
+  width: 22px; height: 22px; flex-shrink: 0;
+  border: 1.5px solid var(--blue); display: flex; align-items: center;
+  justify-content: center; font-size: 16px; color: var(--blue);
+  transition: transform 0.3s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.faq-item.open .faq-tog {
+  transform: rotate(45deg); background: var(--orange);
+  border-color: var(--orange); color: var(--white);
+}
+.faq-ans {
+  font-size: 14px; line-height: 1.8; color: var(--muted);
+  max-height: 0; overflow: hidden; font-weight: 300;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-ans { max-height: 200px; padding-bottom: 20px; }

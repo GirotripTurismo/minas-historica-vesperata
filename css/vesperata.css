@@ -1,0 +1,74 @@
+/* ══ VESPERATA MODULE ══════════════════ */
+#s-ves { background: var(--white); padding: 0; }
+
+.ves-layout {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  min-height: 660px;
+}
+
+/* Text side */
+.ves-text {
+  padding: 96px 64px 96px 0;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-left: max(40px, calc((100vw - 1200px) / 2 + 40px));
+}
+.ves-text p {
+  font-size: 15px; line-height: 1.92; color: var(--muted);
+  font-weight: 300; margin-bottom: 18px;
+}
+.ves-text strong { font-weight: 700; color: var(--text); }
+.ves-h {
+  font-family: var(--ff-serif); font-size: 38px; font-weight: 700;
+  color: var(--blue); line-height: 1.12; margin-bottom: 24px;
+}
+
+/* Stats */
+.ves-stats { display: flex; flex-direction: column; border-top: 1px solid var(--border); margin-top: 28px; }
+.ves-stat {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.ves-stat-num {
+  font-family: var(--ff-serif); font-size: 20px; font-weight: 700;
+  color: var(--orange); min-width: 48px; flex-shrink: 0;
+}
+.ves-stat-text { font-size: 13px; color: var(--text); font-weight: 400; line-height: 1.55; }
+.ves-stat-text strong { font-weight: 700; }
+
+/* Dots */
+.ves-dots { display: flex; gap: 6px; margin-top: 20px; }
+.ves-dot {
+  width: 24px; height: 3px; background: var(--border);
+  cursor: pointer; transition: background 0.3s, width 0.3s;
+}
+.ves-dot.act { background: var(--orange); width: 40px; }
+
+/* Strips side — curtain animation handled in animations.css */
+.ves-strips {
+  display: flex; overflow: hidden; min-height: 660px;
+}
+.ves-strip {
+  flex: 1; background-size: cover; background-position: center;
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.ves-strip::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,30,58,.85) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.ves-strip.act::after { opacity: 1; }
+.ves-strip.act { flex: 5; }
+
+.ves-strip-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 18px; z-index: 2;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.ves-strip.act .ves-strip-info { opacity: 1; transform: none; }
+.ves-strip-title {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  letter-spacing: .04em; margin-bottom: 2px;
+}
+.ves-strip-sub { font-size: 11px; color: rgba(255,255,255,.6); font-weight: 300; }

@@ -1,0 +1,125 @@
+/* ══ ROTEIRO — PINNED HORIZONTAL SCROLL ══
+   Outer wrapper defines scroll height.
+   Inner is sticky and translates a horizontal track.
+════════════════════════════════════════ */
+
+/* Outer — gives scroll room */
+#s-rot { position: relative; }
+.rot-pin-outer {
+  height: 600vh; /* 5 cities × 120vh */
+}
+.rot-pin-inner {
+  position: sticky; top: 0;
+  height: 100vh; overflow: hidden;
+}
+
+/* Horizontal track */
+.rot-track {
+  display: flex; height: 100%;
+  width: 500vw; /* 5 cities */
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+/* Each city panel — full viewport */
+.rot-panel {
+  width: 100vw; height: 100vh; flex-shrink: 0;
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.rot-panel-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transform: scale(1.08);
+  transition: transform 0.8s var(--ease-out);
+}
+.rot-panel.active .rot-panel-bg { transform: scale(1); }
+.rot-panel-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(14,22,50,.95) 0%,
+    rgba(14,22,50,.6)  40%,
+    rgba(14,22,50,.15) 75%,
+    transparent 100%
+  );
+}
+
+/* City content */
+.rot-content {
+  position: relative; z-index: 2;
+  padding: 0 80px 72px;
+  width: 100%; max-width: 1000px;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out) 0.2s,
+              transform 0.7s var(--ease-out) 0.2s;
+}
+.rot-panel.active .rot-content { opacity: 1; transform: none; }
+
+.rot-panel-day {
+  font-size: 11px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 12px; display: block;
+}
+.rot-panel-name {
+  font-family: var(--ff-serif); font-size: 72px; font-weight: 700;
+  color: var(--white); line-height: 1; margin-bottom: 16px;
+  text-shadow: 0 2px 40px rgba(0,0,0,.5);
+}
+.rot-panel-desc {
+  font-size: 16px; font-weight: 300; line-height: 1.75;
+  color: rgba(255,255,255,.72); margin-bottom: 24px;
+  max-width: 560px;
+}
+.rot-panel-exp {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.rot-panel-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: .04em;
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: 5px 14px;
+  transition: all 0.2s ease;
+}
+.rot-panel-tag--hl {
+  background: var(--orange); color: var(--white);
+  border-color: var(--orange);
+}
+
+/* Progress counter */
+.rot-counter {
+  position: absolute; top: 48px; right: 80px; z-index: 10;
+  font-family: var(--ff-serif); font-size: 14px;
+  color: rgba(255,255,255,.45); letter-spacing: .06em;
+}
+.rot-counter span { color: var(--white); font-weight: 700; }
+
+/* Intro header (before pin) */
+.rot-intro {
+  background: var(--cream);
+  padding: 96px var(--pad) 72px;
+  max-width: var(--max); margin: 0 auto;
+}
+.rot-title {
+  font-family: var(--ff-serif); font-size: 52px; font-weight: 700;
+  color: var(--blue); line-height: 1.08; margin-bottom: 12px;
+}
+.rot-sub { font-size: 16px; color: var(--muted); font-weight: 300; }
+
+/* Scroll hint animation */
+.rot-scroll-hint {
+  position: absolute; bottom: 28px; left: 50%;
+  transform: translateX(-50%); z-index: 10;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; transition: opacity 0.4s ease;
+  color: rgba(255,255,255,.4); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+}
+.rot-scroll-hint.show { opacity: 1; }
+.rot-scroll-line {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--orange), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1; transform: scaleY(1.2); }
+}
